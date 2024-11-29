@@ -13,6 +13,7 @@
 
 import 'package:go_router/go_router.dart';
 import 'package:nextodo/screens/home_screen.dart';
+import 'package:nextodo/screens/profile_screen.dart';
 
 
 final GoRouter router = GoRouter(
@@ -20,6 +21,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      path: '/profile',
+      builder: (context, state) => const ProfileScreen(),
     ),
   ],
 );

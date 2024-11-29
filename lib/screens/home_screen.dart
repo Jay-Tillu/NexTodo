@@ -5,6 +5,22 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              print("On Profile Clicked");
+            },
+            icon: const Icon(
+              Icons.account_circle_outlined,
+            ),
+          )
+        ],
+        title: const Text(
+          'Today',
+        ),
+      ),
+    );
   }
 }
