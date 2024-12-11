@@ -4,11 +4,10 @@ import LoginComponent from "../components/Login/LoginComponent";
 import { useFonts } from "expo-font";
 
 const App = () => {
-    const [loaded] = useFonts({
-        
-    })
+  // TODO: Add Geist Mono Fonts Here 
+  const [loaded] = useFonts({});
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <LoginComponent />
     </View>
   );
