@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nextodo/constants/app_strings.dart';
+import 'package:nextodo/constants/custom_colors.dart';
 import 'package:nextodo/widgets/google_sign_in_button.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -11,6 +12,7 @@ class LoginScreen extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: CustomColors.surfaceColor,
       body: SizedBox(
         height: double.infinity,
         width: double.infinity,

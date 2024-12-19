@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nextodo/constants/app_strings.dart';
+import 'package:nextodo/constants/custom_colors.dart';
+import 'package:nextodo/constants/image_constants.dart';
 
 class GoogleSigninButton extends StatelessWidget {
   const GoogleSigninButton({super.key});
@@ -10,22 +13,24 @@ class GoogleSigninButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.7,
       child: OutlinedButton(
         onPressed: () {
-          debugPrint("Sign in called.");
+          context.replace("/");
         },
         style: OutlinedButton.styleFrom(
           minimumSize: Size(double.infinity, 48),
           side: const BorderSide(color: Colors.grey),
+          backgroundColor: CustomColors.surfaceColor,
+          splashFactory: InkRipple.splashFactory,
+          overlayColor: Colors.grey,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
-          backgroundColor: Colors.white,
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Image.asset(
-              'assets/images/google-logo.png',
+              ImageConstants.googleImage,
               height: 20,
             ),
             const Expanded(

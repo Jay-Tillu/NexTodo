@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nextodo/constants/custom_colors.dart';
 
 class TodayScreen extends StatelessWidget {
   const TodayScreen({super.key});
@@ -15,17 +16,17 @@ class TodayScreen extends StatelessWidget {
             fontSize: 20,
           ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () => debugPrint("Profile Button Clicked"),
-            icon: Icon(Icons.account_circle_outlined),
+      ),
+      body: Column(
+        children: [
+          Center(
+            child: Text('Today Screen'),
           ),
         ],
       ),
-      body: Center(
-        child: Text('Today Screen'),
-      ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: CustomColors.primaryColor,
+        foregroundColor: Colors.black,
         shape: CircleBorder(),
         child: Icon(Icons.add_rounded),
         onPressed: () => context.push("/create-task"),
