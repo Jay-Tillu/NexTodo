@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nextodo/constants/custom_colors.dart';
+import 'package:nextodo/providers/todo_provider.dart';
+import 'package:provider/provider.dart';
 
 class CreateTask extends StatefulWidget {
   const CreateTask({super.key});
@@ -9,6 +11,8 @@ class CreateTask extends StatefulWidget {
 }
 
 class _CreateTaskState extends State<CreateTask> {
+  final TextEditingController _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +20,7 @@ class _CreateTaskState extends State<CreateTask> {
         title: Text(
           'Create Task',
           style: TextStyle(
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w500,
             fontSize: 20,
           ),
         ),
@@ -40,31 +44,40 @@ class _CreateTaskState extends State<CreateTask> {
               top: 30,
             ),
             child: TextField(
+              controller: _controller,
               autofocus: true,
               decoration: InputDecoration(
-                  isDense: true,
-                  hintText: "Enter task",
-                  border: OutlineInputBorder(),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.grey,
-                      width: 1.0,
-                    ),
+                isDense: true,
+                hintText: "Enter task",
+                border: OutlineInputBorder(),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.grey,
+                    width: 1.0,
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: CustomColors.primaryColor,
-                      width: 2.0,
-                    ),
-                  )),
-              onChanged: (e) {
-                debugPrint(e);
-              },
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: CustomColors.primaryColor,
+                    width: 2.0,
+                  ),
+                ),
+              ),
             ),
           ),
           Center(
             child: FilledButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                final todoTitle = _controller.text.trim();
+                if (todoTitle.isNotEmpty) {
+                  context.read<TodoProvider>().addTodo(todoTitle);
+                  _controller.clear();
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Please enter a todo")),
+                  );
+                }
+              },
               icon: const Icon(Icons.add_rounded),
               label: const Text(
                 'Create Task',
