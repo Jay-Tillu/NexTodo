@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
-import 'package:nextodo/screens/create_task.dart';
-import 'package:nextodo/screens/home_screen.dart';
-import 'package:nextodo/screens/login_screen.dart';
+import 'package:nextodo/screens/task/create_task.dart';
+import 'package:nextodo/screens/home/home_screen.dart';
+import 'package:nextodo/screens/login/login_screen.dart';
 
 final GoRouter _router = GoRouter(
   initialLocation: '/login',

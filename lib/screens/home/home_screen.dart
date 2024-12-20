@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nextodo/constants/custom_colors.dart';
-import 'package:nextodo/screens/pending_screen.dart';
-import 'package:nextodo/screens/today_screen.dart';
+import 'package:nextodo/screens/pending/pending_screen.dart';
+import 'package:nextodo/screens/today/today_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class HomeScreen extends StatefulWidget {
