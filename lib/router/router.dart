@@ -21,7 +21,7 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/create-task',
       builder: (context, state) {
-        return const CreateTask();
+        return CreateTask();
       },
     ),
   ],
